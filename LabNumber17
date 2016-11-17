@@ -1,0 +1,44 @@
+1. select * from customers
+
+2. SELECT        distinct Country
+FROM            Customers
+
+3. SELECT * FROM Customers
+where customerID like 'bi%'
+
+4. SELECT TOP 100 * from Orders
+
+5.  SELECT * from Customers Where PostalCode = '1010' OR PostalCode ='3012' OR PostalCode = '12209' OR PostalCode = '05023'
+--or: SELECT * from Customers Where PostalCode IN ('1010','3012','12209','05023')
+
+6. SELECT * from Orders Where ShipRegion is not null
+
+7. SELECT * from Customers order by Country, City
+
+8. INSERT INTO Customers (CustomerID, ContactName, Address, City, PostalCode, Country, CompanyName)
+VALUES ('BI999','Billy Gates','123 Skidoo','Silicon Valley','92111','United States', 'Microsoft')
+
+9. UPDATE Orders
+SET ShipRegion='EuroZone'
+WHERE ShipCountry='France'
+
+10. DELETE [Order Details]
+WHERE Quantity=1
+
+11. SELECT Avg(Quantity) as AverageQuantity from [Order Details]
+SELECT Min(Quantity) as MinQuantity from [Order Details]
+SELECT Max(Quantity) as MaxQuantity from [Order Details]
+
+12. SELECT Avg(Quantity) as AverageQuantity from [Order Details] Group by OrderID
+SELECT Min(Quantity) as MinQuantity from [Order Details] Group by OrderID
+SELECT Max(Quantity) as MaxQuantity from [Order Details] Group by OrderID
+
+13. SELECT CustomerID from orders where orderID='10290'
+
+14. SELECT * from Customers Join Orders On Customers.CustomerID=Orders.CustomerID
+SELECT * from Customers Left Join Orders On Customers.CustomerID=Orders.CustomerID
+SELECT * from Customers Right Join Orders On Customers.CustomerID=Orders.CustomerID
+
+15. SELECT FirstName from employees where ReportsTo is null
+
+16. SELECT FirstName from employees where ReportsTo like (SELECT EmployeeID from Employees where FirstName='Andrew')
